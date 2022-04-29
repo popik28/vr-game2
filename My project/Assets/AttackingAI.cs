@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class AttackingAI : MonoBehaviour
 {
     private Transform playerPos;
-    public float moveSpeed, spotRange, attackRange;
-    private float distance;
-    public bool isChasing, isAttacking, walkingBack;
-    public Vector3 originalPos;
-    Animator anim;
-    public NavMeshAgent agent;
+    [SerializeField] private float moveSpeed, spotRange, attackRange;
+    [SerializeField] private float distance;
+    [SerializeField] private bool isChasing, isAttacking, walkingBack;
+    [SerializeField] private Vector3 originalPos;
+    [SerializeField] private Animator anim;
+    [SerializeField] private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()

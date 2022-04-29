@@ -27,6 +27,11 @@ public class EnemyHealth : MonoBehaviour
     {
         slider.value = CalculateHealth();
 
+        if (health >= 100)
+        {
+            healthBarUI.SetActive(false);
+        }
+
         if(health < maxHealth)
         {
             healthBarUI.SetActive(true);
