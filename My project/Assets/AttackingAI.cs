@@ -7,11 +7,19 @@ public class AttackingAI : MonoBehaviour
 {
     private Transform playerPos;
     [SerializeField] private float moveSpeed, spotRange, attackRange;
+<<<<<<< HEAD
     private float distance;
     public bool isChasing, isAttacking, walkingBack;
     public Vector3 originalPos;
     Animator anim;
     public NavMeshAgent agent;
+=======
+    [SerializeField] private float distance;
+    [SerializeField] private bool isChasing, isAttacking, walkingBack;
+    [SerializeField] private Vector3 originalPos;
+    [SerializeField] private Animator anim;
+    [SerializeField] private NavMeshAgent agent;
+>>>>>>> c9203cad0f4d32f12f4cb4a88d29b12217891b6e
 
     /*
     public float MoveSpeed(float speed)
