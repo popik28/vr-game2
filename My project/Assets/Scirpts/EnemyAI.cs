@@ -17,30 +17,31 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         UpdateDestination();
     }
+
     // Update is called once per frame
     void Update()
     {
           if(Vector3.Distance(transform.position, target) < 1)
-       {
-            IteratewaypointIndex();
-            UpdateDestination();
-        }
-      
-
+          {
+                IteratewaypointIndex();
+                UpdateDestination();
+          }
     }
+
     void UpdateDestination()
     {
         target = waypoints[waypointIndex].position;
         agent.SetDestination(target);
     }
+
     void IteratewaypointIndex()
     {
         waypointIndex++;
+
         if(waypointIndex == waypoints.Length)
         {
             waypointIndex = 0;
-        }    
-
+        }   
     }
 
 }
