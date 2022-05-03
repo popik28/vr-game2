@@ -3,58 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AttackingAI : MonoBehaviour
+public class AttackingAI : EnemyHealth
 {
     private Transform playerPos;
     [SerializeField] private float moveSpeed, spotRange, attackRange;
-<<<<<<< HEAD
-    private float distance;
-    public bool isChasing, isAttacking, walkingBack;
-    public Vector3 originalPos;
-    Animator anim;
-    public NavMeshAgent agent;
-=======
     [SerializeField] private float distance;
-    [SerializeField] private bool isChasing, isAttacking, walkingBack;
+    [SerializeField] private bool walkingBack;
     [SerializeField] private Vector3 originalPos;
-    [SerializeField] private Animator anim;
-    [SerializeField] private NavMeshAgent agent;
->>>>>>> c9203cad0f4d32f12f4cb4a88d29b12217891b6e
+    private BoxCollider boxCollider;
+    private Animator anim;
+    private NavMeshAgent agent;
+    private bool isDying;
 
-    /*
-    public float MoveSpeed(float speed)
+    void Start()
     {
-        get
-        {
-            return moveSpeed;
-        }
-        set 
-        {
-            moveSpeed = speed;
-        }
-    }
-    */
-
-    // Start is called before the first frame update
-    public void Start()
-    {
+        agent = GetComponent<NavMeshAgent>();
+        boxCollider = GetComponent<BoxCollider>();
+        base.Start();
         originalPos = this.transform.position;
         anim = GetComponent<Animator>();
-        isAttacking = false;
         this.agent.speed = moveSpeed;
     }
 
-    // Update is called once per frame
-    public void Update()
+    void Update()
     {
+        base.Update();
+
         if (GameObject.FindGameObjectsWithTag("Player") != null)
+        {
             playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        }
 
         distance = Vector3.Distance(playerPos.position, transform.position);
 
+        if (health <= 0)
+        {
+            anim.Play("Die");
+            moveSpeed = 0;
+            boxCollider.enabled = false;
+            StartCoroutine(DespawnDeadEnemy());
+            return;
+        }
+
         if (distance <= attackRange)
         {
-            AnimateEnemy("Attack", 0);
+            anim.Play("Attack");
+            agent.speed = 0;
         }
         else if (distance <= spotRange)
         {
@@ -63,15 +57,15 @@ public class AttackingAI : MonoBehaviour
             agent.speed = moveSpeed;
         }
 
-        if (distance > spotRange && Vector3.Distance(this.transform.position, originalPos) > 1)
+        if (distance > spotRange && Vector3.Distance(this.transform.position, originalPos) > 0.1)
         {
             walkingBack = true;
             agent.SetDestination(originalPos);
-          
-            AnimateEnemy("Walk", moveSpeed);
+            anim.Play("Walk");
+            agent.speed = moveSpeed;
         }
 
-        if (walkingBack && Vector3.Distance(this.transform.position, originalPos) <= 1)
+        if (walkingBack && Vector3.Distance(this.transform.position, originalPos) <= 0.1)
         {
             anim.Play("Idle");
             walkingBack = false;
@@ -83,4 +77,11 @@ public class AttackingAI : MonoBehaviour
         anim.Play(animation);
         agent.speed = moveSpeed;
     }
+
+    IEnumerator DespawnDeadEnemy()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(gameObject);
+    }
+
 }
