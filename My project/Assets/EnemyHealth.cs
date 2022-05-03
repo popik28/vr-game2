@@ -5,25 +5,27 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float health;
-    public float maxHealth;
-    public GameObject healthBarUI;
-    public Slider slider;
+    [SerializeField] public float health;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private GameObject healthBarUI;
+    [SerializeField] private Slider slider;
 
-    float CalculateHealth()
+    private float CalculateHealth()
     {
+        /// <summary> Adapts amount of health to value of slider </summary>
+        /// <returns>Returns a float between 0 and 1 that represents health points.</returns>
         return health / maxHealth;
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         health = maxHealth;
         slider.value = CalculateHealth();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         slider.value = CalculateHealth();
 
@@ -35,11 +37,6 @@ public class EnemyHealth : MonoBehaviour
         if(health < maxHealth)
         {
             healthBarUI.SetActive(true);
-        }
-
-        if(health <= 0)
-        {
-            Destroy(gameObject);
         }
 
         if(health > maxHealth)

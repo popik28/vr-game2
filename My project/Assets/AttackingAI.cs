@@ -3,39 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AttackingAI : MonoBehaviour
+public class AttackingAI : EnemyHealth
 {
     private Transform playerPos;
     [SerializeField] private float moveSpeed, spotRange, attackRange;
     [SerializeField] private float distance;
-    [SerializeField] private bool isChasing, isAttacking, walkingBack;
+    [SerializeField] private bool walkingBack;
     [SerializeField] private Vector3 originalPos;
-    [SerializeField] private Animator anim;
-    [SerializeField] private NavMeshAgent agent;
+    private BoxCollider boxCollider;
+    private Animator anim;
+    private NavMeshAgent agent;
+    private bool isDying;
 
-    // Start is called before the first frame update
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        boxCollider = GetComponent<BoxCollider>();
+        base.Start();
         originalPos = this.transform.position;
         anim = GetComponent<Animator>();
-        isAttacking = false;
         this.agent.speed = moveSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        base.Update();
+
         if (GameObject.FindGameObjectsWithTag("Player") != null)
+        {
             playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        }
 
         distance = Vector3.Distance(playerPos.position, transform.position);
+
+        if (health <= 0)
+        {
+            anim.Play("Die");
+            moveSpeed = 0;
+            boxCollider.enabled = false;
+            StartCoroutine(DespawnDeadEnemy());
+            return;
+        }
 
         if (distance <= attackRange)
         {
             anim.Play("Attack");
             agent.speed = 0;
         }
-
         else if (distance <= spotRange)
         {
             agent.SetDestination(playerPos.position);
@@ -43,19 +57,31 @@ public class AttackingAI : MonoBehaviour
             agent.speed = moveSpeed;
         }
 
-        if (distance > spotRange && Vector3.Distance(this.transform.position, originalPos) > 1)
+        if (distance > spotRange && Vector3.Distance(this.transform.position, originalPos) > 0.1)
         {
             walkingBack = true;
             agent.SetDestination(originalPos);
             anim.Play("Walk");
             agent.speed = moveSpeed;
-
         }
 
-        if (walkingBack && Vector3.Distance(this.transform.position, originalPos) <= 1)
+        if (walkingBack && Vector3.Distance(this.transform.position, originalPos) <= 0.1)
         {
             anim.Play("Idle");
             walkingBack = false;
         }
     }
+
+    private void AnimateEnemy(string animation, float moveSpeed)
+    {
+        anim.Play(animation);
+        agent.speed = moveSpeed;
+    }
+
+    IEnumerator DespawnDeadEnemy()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(gameObject);
+    }
+
 }
