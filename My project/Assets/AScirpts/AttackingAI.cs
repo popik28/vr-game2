@@ -33,6 +33,7 @@ public class AttackingAI : EnemyHealth
         {
             playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         }
+        /// <summary>Finds player position</summary>
 
         distance = Vector3.Distance(playerPos.position, transform.position);
 
@@ -44,18 +45,24 @@ public class AttackingAI : EnemyHealth
             StartCoroutine(DespawnDeadEnemy());
             return;
         }
+        /// <summary>Kills enemy, removes collider so player can walk over the body and uses the despawn enemy function.</summary>
+
 
         if (distance <= attackRange)
         {
             anim.Play("Attack");
             agent.speed = 0;
-        }
+            Vector3 targetPosition = new Vector3(playerPos.position.x, 0, playerPos.position.z);
+            agent.transform.LookAt(targetPosition);
+        }/// <summary>Attacks player when he is in range, uses LookAt to keep facing the player</summary>
         else if (distance <= spotRange)
         {
             agent.SetDestination(playerPos.position);
             anim.Play("Walk");
             agent.speed = moveSpeed;
         }
+        /// <summary>Enemy chases the player until in range of attack or out of spotting range</summary>
+
 
         if (distance > spotRange && Vector3.Distance(this.transform.position, originalPos) > 0.1)
         {
@@ -64,23 +71,35 @@ public class AttackingAI : EnemyHealth
             anim.Play("Walk");
             agent.speed = moveSpeed;
         }
+        /// <summary>When player is outside of spot range, enemy will walk back to it's original spawn location</summary>
+
 
         if (walkingBack && Vector3.Distance(this.transform.position, originalPos) <= 0.1)
         {
             anim.Play("Idle");
             walkingBack = false;
         }
+        /// <summary>If enemy is in his original location and is not aggravated, play idle animation</summary>
+
     }
 
     private void AnimateEnemy(string animation, float moveSpeed)
     {
+        /// <summary>
+        ///  Animates enemy according to input string
+        /// </summary>
+        /// <param name="animation">Animates enemy according to parameter provided</param>
+        /// <param name="moveSpeed">Enemy move speed</param>
         anim.Play(animation);
         agent.speed = moveSpeed;
     }
 
     IEnumerator DespawnDeadEnemy()
     {
-        yield return new WaitForSeconds(10);
+        /// <summary>
+        ///  Despawns dead enemies after a certain time
+        /// </summary>
+        yield return new WaitForSeconds(20);
         Destroy(gameObject);
     }
 

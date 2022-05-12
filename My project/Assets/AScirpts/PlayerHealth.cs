@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public Slider slider;
-    [SerializeField] public float health, maxHealth = 100, swordHit = 20;
+    [SerializeField] private Slider slider;
+    [SerializeField] private float health, maxHealth = 100;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -50,11 +49,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.tag == "enemyWeapon")
-        {
-            Damage(swordHit);
-        }
-    }
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.transform.tag == "enemyWeapon")
+    //    {
+    //        Damage(swordHit);
+    //    }
+    //}
 }
