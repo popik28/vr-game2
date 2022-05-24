@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/BNG Framework/Scenes/Vehicle Example.unity
     guid: d96233ee44d985d4fb8dc23a907c06eb
   - enabled: 1
-    path: Assets/Scenes/Knights.unity
+    path: Assets/AScenes/Knights.unity
     guid: ed5cbde1fe2ede94d8f7b5c2105e822f
   - enabled: 1
-    path: Assets/Scenes/city.unity
+    path: Assets/AScenes/city.unity
     guid: 88e37f59cea95814996b2def95fc74ff
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7a815c4eae1af4943a1960efc0dbe0ed,

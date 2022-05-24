@@ -4,25 +4,42 @@ using UnityEngine;
 
 public class OpenWhenColide : MonoBehaviour
 {
-    bool move = false;
+    public bool move = false;
+    Vector3 originalPos;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalPos = transform.position;   
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y > 2)
-            move = false;
+        if (!move)
+        {
+            transform.position = originalPos;
+        }
+
         if (move)
-            transform.position += Vector3.up * Time.deltaTime * 3;
+        {
+            Vector3 gateUp = new Vector3(transform.position.x, 2, transform.position.z);
+            transform.position = gateUp;
+            //transform.position =  gateUp * Time.deltaTime * 0.1f;
+        }
         
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
             move = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "Player")
+        {
+            move = false;
+        }
     }
 }
