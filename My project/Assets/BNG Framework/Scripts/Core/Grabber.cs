@@ -12,6 +12,7 @@ namespace BNG {
     [RequireComponent(typeof(GrabbablesInTrigger))]
     public class Grabber : MonoBehaviour {
 
+        public bool ariel;
         [Header("Hand Side")]
         /// <summary>
         /// Which controller side. None if not attached to a controller.
@@ -226,8 +227,18 @@ namespace BNG {
         
         void Update() {
 
+            if (!HeldGrabbable)
+            {
+                ariel = false;
+            }
+
+            if (HeldGrabbable)
+            {
+                ariel = true;
+            }
+
             // Keep track of how long an object has been trying to fly to our hand
-            if(flyingGrabbable != null) {
+            if (flyingGrabbable != null) {
                 flyingTime += Time.deltaTime;
                 
                 // Only allow an object to fly towards us
