@@ -23,9 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AScenes/Knights.unity
     guid: ed5cbde1fe2ede94d8f7b5c2105e822f
-  - enabled: 1
+  - enabled: 0
     path: Assets/AScenes/city.unity
     guid: 88e37f59cea95814996b2def95fc74ff
+  - enabled: 1
+    path: Assets/AScenes/Menu.unity
+    guid: bde9c8d61f81d6446a89945f09d06075
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7a815c4eae1af4943a1960efc0dbe0ed,
       type: 2}

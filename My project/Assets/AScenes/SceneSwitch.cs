@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+
+    public void playGame()
     {
-        SceneManager.LoadScene(1);
+       SceneManager.LoadScene(0);
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    SceneManager.LoadScene(0);
+    //}
 }

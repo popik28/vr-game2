@@ -43,5 +43,16 @@ public class EnemyHealth : MonoBehaviour
         {
             health = maxHealth;
         }
+
+
     }
+
+    public void Damage(float damage)
+    {
+        if (health > 0)
+        {
+            health -= damage;
+        }
+    }
+
 }
