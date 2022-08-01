@@ -7,12 +7,15 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private float health, maxHealth = 100;
+    [SerializeField] GameObject videoPlayer, playerCamera;
+    [SerializeField] int timeToStop;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;   
+        health = maxHealth;
+        videoPlayer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,6 +26,13 @@ public class PlayerHealth : MonoBehaviour
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+
+        if (health <= 0) 
+        {
+            videoPlayer.SetActive(true);
+            playerCamera.SetActive(false);   
+            Destroy(videoPlayer, timeToStop);
         }
 
         HealthBarFiller();
