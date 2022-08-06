@@ -51,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
         float red = (maxHealth -health)/100;
         color.a = red;
         m_GotHitScreen.GetComponent<Image>().color = color;
+        //a
     }
 
     public void Damage(float damage)
