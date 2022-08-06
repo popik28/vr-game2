@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float health, maxHealth = 100;
     [SerializeField] GameObject videoPlayer, playerCamera;
     [SerializeField] int timeToStop;
-
+    [SerializeField] GameObject m_GotHitScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +30,27 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0) 
         {
-            videoPlayer.SetActive(true);
-            playerCamera.SetActive(false);   
-            Destroy(videoPlayer, timeToStop);
+          //  videoPlayer.SetActive(true);
+           // playerCamera.SetActive(false);   
+            //Destroy(videoPlayer, timeToStop);
         }
-
+     /*   if(health < maxHealth)
+        {
+            var color = m_GotHitScreen.GetComponent<Image>().color;
+            color.a = 0.5f;
+            m_GotHitScreen.GetComponent<Image>().color = color;
+        }*/
+        
         HealthBarFiller();
     }
 
     public void HealthBarFiller()
     {
         slider.value = health / maxHealth;
+        var color = m_GotHitScreen.GetComponent<Image>().color;
+        float red = (maxHealth -health)/100;
+        color.a = red;
+        m_GotHitScreen.GetComponent<Image>().color = color;
     }
 
     public void Damage(float damage)
