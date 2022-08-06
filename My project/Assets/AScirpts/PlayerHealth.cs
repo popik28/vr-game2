@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,11 +13,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int timeToStop;
     [SerializeField] GameObject m_GotHitScreen;
 
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        videoPlayer.SetActive(false);
+        //videoPlayer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,17 +33,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0) 
         {
-          //  videoPlayer.SetActive(true);
-           // playerCamera.SetActive(false);   
-            //Destroy(videoPlayer, timeToStop);
+            SceneManager.LoadScene(2);
         }
-     /*   if(health < maxHealth)
-        {
-            var color = m_GotHitScreen.GetComponent<Image>().color;
-            color.a = 0.5f;
-            m_GotHitScreen.GetComponent<Image>().color = color;
-        }*/
-        
+
         HealthBarFiller();
     }
 
@@ -48,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     {
         slider.value = health / maxHealth;
         var color = m_GotHitScreen.GetComponent<Image>().color;
-        float red = (maxHealth -health)/100;
+        float red = (maxHealth -health)/100 - 0.4f;
         color.a = red;
         m_GotHitScreen.GetComponent<Image>().color = color;
         //a
@@ -67,6 +62,10 @@ public class PlayerHealth : MonoBehaviour
         if (health < maxHealth)
         {
             health += healingPoints;
+            var color = m_GotHitScreen.GetComponent<Image>().color;
+            float red = (health + healingPoints) / 100 - 0.4f;
+            color.a = red;
+            m_GotHitScreen.GetComponent<Image>().color = color;
         }
     }
 
