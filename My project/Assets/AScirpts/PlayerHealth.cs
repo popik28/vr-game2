@@ -57,6 +57,11 @@ public class PlayerHealth : MonoBehaviour
         }  
     }
 
+    public void setHealth(float hp)
+    {
+        health = hp;
+    }
+
     public void Heal(float healingPoints)
     {
         if (health < maxHealth)

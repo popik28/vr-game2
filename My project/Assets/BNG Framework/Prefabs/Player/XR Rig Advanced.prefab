@@ -13268,6 +13268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c428201425bc44d8eb038a0fb424d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ariel: 0
   HandSide: 1
   DefaultHoldType: 0
   DefaultGrabButton: 0
@@ -29219,6 +29220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c428201425bc44d8eb038a0fb424d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ariel: 0
   HandSide: 0
   DefaultHoldType: 0
   DefaultGrabButton: 0
@@ -59286,6 +59288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c428201425bc44d8eb038a0fb424d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ariel: 0
   HandSide: 0
   DefaultHoldType: 0
   DefaultGrabButton: 0
@@ -71770,6 +71773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c428201425bc44d8eb038a0fb424d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ariel: 0
   HandSide: 1
   DefaultHoldType: 0
   DefaultGrabButton: 0
