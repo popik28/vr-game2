@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Dialogue : MonoBehaviour
-{
+{/// <summary>Handles NPC dialogue to point the player to the next objective</summary>
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] string[] lines;
     [SerializeField] float textSpeed;
@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   /// <summary>Initializes animator and text components.</summary>
         anim = this.GetComponentInParent<Canvas>().GetComponentInParent<Animator>();
         TextImage = this.GetComponent<Image>();
         TextImage.enabled = false;
@@ -32,24 +32,24 @@ public class Dialogue : MonoBehaviour
     IEnumerator TypeLine() 
     {
         foreach (char c in lines[index].ToCharArray()) 
-        {
+        {/// <summary>Function types the line, one character at a time from array of dialogue strings.</summary>
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
         if (textComponent.text == lines[index])
-        {
+        {/// <summary>If we have reached end of line continue to next line, else do nothing.</summary>
             yield return new WaitForSeconds(5);
             NextLine();
         }
     }
 
     IEnumerator WaitSeconds()
-    {
+    {   /// <summary>Enumerator to handle time delay</summary>
         yield return new WaitForSeconds(seconds);
     }
 
     private void NextLine()
-    {
+    {   /// <summary>Handles next line in array, if last line has been written, destroy game object.</summary>
         if (index < lines.Length - 1)
         {
             index++;
@@ -63,7 +63,7 @@ public class Dialogue : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   /// <summary>Activate textbox when player interacts with NPC and handle animation</summary>
         if (other.tag == "Player")
         {
             TextImage.enabled = true;
@@ -75,7 +75,7 @@ public class Dialogue : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other)
-    {
+    {   /// <summary>Stop coroutines and disable text & textbox</summary>
         if (other.tag == "Player")
         {
             StopAllCoroutines();

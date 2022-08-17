@@ -19,8 +19,8 @@ public class Dummy : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.tag == "Player")
+    {   /// <summary>Handle dummy animation when touched by player or sword</summary>
+        if (other.transform.tag == "Player" || other.transform.tag == "Katana")
         {
             anim.Play("pushed");
         }

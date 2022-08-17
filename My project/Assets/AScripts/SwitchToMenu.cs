@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SwitchToMenu : MonoBehaviour
 {
-
+    /// <summary>Switches scene to main menu</summary>
     private IEnumerator countDown() 
     {
         yield return new WaitForSeconds(5.0f);
@@ -17,9 +17,4 @@ public class SwitchToMenu : MonoBehaviour
         StartCoroutine(countDown());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

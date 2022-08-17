@@ -14,12 +14,12 @@ public class PortalTextureSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /// <summary>Place camera textrue on portal planes</summary>
 
         if (cameraA.targetTexture != null)
-        {
+        {   
             cameraA.targetTexture.Release();
         }
-
         cameraA.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         cameraMatA.mainTexture = cameraA.targetTexture;
 

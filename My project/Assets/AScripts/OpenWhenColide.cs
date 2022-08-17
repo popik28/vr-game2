@@ -25,10 +25,7 @@ public class OpenWhenColide : MonoBehaviour
 
         if (move && transform.position.y < originalPos.y + 3)
         {
-            //Vector3 gateUp = new Vector3(transform.position.x, 2, transform.position.z);
-            //transform.position = gateUp;
-            //if (transform.position.y < originalPos.y + 3)
-                transform.position += Vector3.up * 2 * Time.deltaTime;
+            transform.position += Vector3.up * 2 * Time.deltaTime;
         }
         
     }

@@ -8,6 +8,7 @@ TagManager:
   - floore
   - enemyWeapon
   - Enemies
+  - Katana
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ public class PortalTeleporter : MonoBehaviour
      private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && reciever.name == "ColiderPlane_B")
-        {
+        {   /// <summary>Script used to teleport the player from one portal to the other using plane collider</summary>
             playerIsOverlapping = true;
 
             other.transform.position = reciever.position - new Vector3(1, 0, 0);
@@ -31,7 +31,7 @@ public class PortalTeleporter : MonoBehaviour
      private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
-        {
+        {/// <summary>playerIsOverlapping prevents flickering between the two portals</summary>
             playerIsOverlapping = false;
         }
     }

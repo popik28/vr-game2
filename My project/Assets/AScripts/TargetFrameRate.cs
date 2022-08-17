@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetFrameRate : MonoBehaviour
 {
-
+    /// <summary>Prevents application from attempting to reach endless fps</summary>
     public int target = 60;
 
     // Start is called before the first frame update

@@ -12,11 +12,13 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject videoPlayer, playerCamera;
     [SerializeField] int timeToStop;
     [SerializeField] GameObject m_GotHitScreen;
+    [SerializeField] AudioClip hitSound;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         health = maxHealth;
         //videoPlayer.SetActive(false);
     }
@@ -27,12 +29,12 @@ public class PlayerHealth : MonoBehaviour
         //healthText.text = "Health" + health + "%";
         
         if (health > maxHealth)
-        {
+        {   /// <summary>Controls player health, not being able to heal more than max health</summary>
             health = maxHealth;
-        }
+        }   
 
         if (health <= 0) 
-        {
+        {   /// <summary>Handles death</summary>
             SceneManager.LoadScene(2);
         }
 
@@ -40,32 +42,32 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void HealthBarFiller()
-    {
+    {   /// <summary>Handles health bar update and displays effect of taking damage</summary>
         slider.value = health / maxHealth;
         var color = m_GotHitScreen.GetComponent<Image>().color;
         float red = (maxHealth -health)/100 - 0.4f;
         color.a = red;
         m_GotHitScreen.GetComponent<Image>().color = color;
-        //a
     }
 
     public void Damage(float damage)
-    {
+    {   /// <summary>Handles taking damage</summary>
         if (health > 0)
         {
+            AudioSource.PlayClipAtPoint(hitSound, transform.position);
             health -= damage;
         }  
     }
 
     public void setHealth(float hp)
-    {
+    {   /// <summary>setHealth used to update health in tutorial</summary>
         health = hp;
     }
 
     public void Heal(float healingPoints)
     {
         if (health < maxHealth)
-        {
+        {   /// <summary>Handles healing and minimizes red damage effect</summary>
             health += healingPoints;
             var color = m_GotHitScreen.GetComponent<Image>().color;
             float red = (health + healingPoints) / 100 - 0.4f;
