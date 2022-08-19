@@ -9,6 +9,8 @@ TagManager:
   - enemyWeapon
   - Enemies
   - Katana
+  - Projectile
+  - Shield
   layers:
   - Default
   - TransparentFX

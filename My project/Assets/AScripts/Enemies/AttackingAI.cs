@@ -83,17 +83,6 @@ public class AttackingAI : EnemyHealth
 
     }
 
-    private void AnimateEnemy(string animation, float moveSpeed)
-    {
-        /// <summary>
-        ///  Animates enemy according to input string
-        /// </summary>
-        /// <param name="animation">Animates enemy according to parameter provided</param>
-        /// <param name="moveSpeed">Enemy move speed</param>
-        anim.Play(animation);
-        agent.speed = moveSpeed;
-    }
-
     IEnumerator DespawnDeadEnemy()
     {
         /// <summary>

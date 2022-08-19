@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour
     //Lifetime
     public int maxCollisions;
     public float maxLifetime;
-    public bool explodeOnTouch = true;
 
     int collisions;
     PhysicMaterial physic_mat;
@@ -77,10 +76,10 @@ public class Projectile : MonoBehaviour
         if (maxLifetime <= 0) Explode() ;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        collisions++;
+        if (other.CompareTag("Player")) Explode();
 
-        if (collision.collider.CompareTag("Player") && explodeOnTouch) Explode();
+        if (other.CompareTag("Shield")) Destroy(gameObject);
     }
 }

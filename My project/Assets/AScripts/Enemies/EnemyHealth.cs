@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] public float health;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private GameObject healthBarUI;
-    [SerializeField] private Slider slider;
+    public float health;
+    public float maxHealth;
+    public GameObject healthBarUI;
+    public Slider slider;
 
     private float CalculateHealth()
     {
