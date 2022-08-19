@@ -8,7 +8,6 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Montserrat
   fontNames:
   - Montserrat
   fallbackFontReferences:
@@ -20,7 +19,7 @@ TrueTypeFontImporter:
   - {fileID: 12800000, guid: 7e89e80fce8fc06478c726f2f3de7863, type: 3}
   customCharacters: 
   fontRenderingMode: 0
-  ascentCalculationMode: 1
+  ascentCalculationMode: 0
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
   userData: 

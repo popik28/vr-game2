@@ -5,16 +5,12 @@ using UnityEngine;
 public class DamagePlayer : MonoBehaviour
 {
     [SerializeField] float objDamage = 20;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
+        if (GetComponentInParent<EnemyHealth>().health <= 0)
+            GetComponent<BoxCollider>().enabled = false;
 
     }
 

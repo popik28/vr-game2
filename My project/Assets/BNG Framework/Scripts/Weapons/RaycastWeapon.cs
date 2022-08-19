@@ -396,6 +396,12 @@ namespace BNG {
                 if (Physics.Raycast(MuzzlePointTransform.position, MuzzlePointTransform.forward, out hit, MaxRange, ValidLayers, QueryTriggerInteraction.Ignore)) {
                     OnRaycastHit(hit);
                 }
+
+                if (Physics.Raycast(MuzzlePointTransform.position, MuzzlePointTransform.forward, out hit))
+                {
+                    if (hit.collider.CompareTag("Enemies"))
+                        hit.collider.GetComponent<EnemyHealth>().Damage(Damage);
+                }
             }
 
             // Apply recoil

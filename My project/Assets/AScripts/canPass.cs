@@ -16,11 +16,14 @@ public class canPass : MonoBehaviour
     {
         playerGrabber = playerController.GetComponentsInChildren<Grabber>();
         kid = transform.GetChild(0).gameObject;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (playerGrabber[0].ariel || playerGrabber[1].ariel)
         {   //If player is holding something in either hand, activate text + collider
             GetComponent<BoxCollider>().enabled = true;

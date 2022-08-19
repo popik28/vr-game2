@@ -77,6 +77,11 @@ namespace BNG {
                     thisDamageable.DealDamage(CollisionDamage, collision.GetContact(0).point, collision.GetContact(0).normal, true, gameObject, collision.gameObject);
                 }
             }
+
+            if (collision.collider.CompareTag("Enemies"))
+            {
+                collision.collider.GetComponent<EnemyHealth>().Damage(Damage);
+            }
         }
     }
 }

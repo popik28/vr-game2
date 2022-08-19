@@ -43,8 +43,6 @@ public class EnemyHealth : MonoBehaviour
         {
             health = maxHealth;
         }
-
-
     }
 
     public void Damage(float damage)
@@ -54,5 +52,4 @@ public class EnemyHealth : MonoBehaviour
             health -= damage;
         }
     }
-
 }
