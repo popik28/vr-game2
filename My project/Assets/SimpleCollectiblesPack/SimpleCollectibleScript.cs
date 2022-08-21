@@ -34,7 +34,9 @@ public class SimpleCollectibleScript : MonoBehaviour {
 	{
 		if (other.tag == "Player") {
 			Collect ();
+			other.GetComponent<PlayerObjectiveTracker>().hasClimbingGear = true;
 		}
+
 	}
 
 	public void Collect()
