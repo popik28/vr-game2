@@ -81,5 +81,9 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Player")) Explode();
 
         if (other.CompareTag("Shield")) Destroy(gameObject);
+
+        if (other.CompareTag("Enemies"));
+
+        else Explode();
     }
 }

@@ -18,8 +18,21 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (LoadPlayerButton.clickedLoad)
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+            setHealth(data.health);
 
+            float x = data.position[0];
+            float y = data.position[1];
+            float z = data.position[2];
+
+            transform.position = new Vector3(x, y, z);
+            LoadPlayerButton.clickedLoad = false;
+        } else
+        {
         health = maxHealth;
+        }
         //videoPlayer.SetActive(false);
     }
 
@@ -74,6 +87,11 @@ public class PlayerHealth : MonoBehaviour
             color.a = red;
             m_GotHitScreen.GetComponent<Image>().color = color;
         }
+    }
+
+    public float getHealth()
+    {
+        return this.health;
     }
 
     //public void OnTriggerEnter(Collider other)

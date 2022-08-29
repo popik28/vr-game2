@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="canPass" Collapsed="true">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABAAAAAAAAAAAAAIAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\canPass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyAI" Collapsed="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAQQAIAAAAAAAAAIAAAAABAAAAAIAAAA=</HashCode>
+      <FileName>Assets\AScripts\Carpatrol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="patrol" Collapsed="true">
+    <Position X="7.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\carpatrolIor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageEnemy" Collapsed="true">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\DamageEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dialogue" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACABAAAAAEAAAAAAAAIABIAASQBAAAABAQA=</HashCode>
+      <FileName>Assets\AScripts\Dialogue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dummy" Collapsed="true">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAIAAQQAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\Dummy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthTutorial" Collapsed="true">
+    <Position X="13" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAA=</HashCode>
+      <FileName>Assets\AScripts\HealthTutorial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenWhenColide" Collapsed="true">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAACAAAAAAAAAAAAAAIAAQAAAAQAAAAA=</HashCode>
+      <FileName>Assets\AScripts\OpenWhenColide.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerHealth" Collapsed="true">
+    <Position X="9.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACIACAAIACAAIAAAEAAAABAAAACIAAEACAACAg=</HashCode>
+      <FileName>Assets\AScripts\PlayerHealth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerObjectiveTracker" Collapsed="true">
+    <Position X="11.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAACAAAAAAEAAAAgAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\PlayerObjectiveTracker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayTutorialSound" Collapsed="true">
+    <Position X="13" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAA=</HashCode>
+      <FileName>Assets\AScripts\PlayTutorialSound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PortalCamera" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAEAACAAAAA=</HashCode>
+      <FileName>Assets\AScripts\PortalCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PortalTeleporter" Collapsed="true">
+    <Position X="7.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAIABQAAAQAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\PortalTeleporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PortalTextureSetup" Collapsed="true">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAQAACAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\PortalTextureSetup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShieldScript" Collapsed="true">
+    <Position X="11.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\ShieldScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SwitchToMenu" Collapsed="true">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\SwitchToMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetFrameRate" Collapsed="true">
+    <Position X="6" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\TargetFrameRate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UniversalTeleporter" Collapsed="true">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAACAAAAEAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\UniversalTeleporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthPickup" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAQAAAQAAAAAAAAAAAAQABAACAAAAA=</HashCode>
+      <FileName>Assets\AScripts\Pickups\HealthPickup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemPickup" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAQAAAAAAAAAAAAQABAACAAAAA=</HashCode>
+      <FileName>Assets\AScripts\Pickups\ItemPickup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AttackingAI" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAQECAAIQAABAACAAAAAEAAAAAAAQAAAQAIAAA=</HashCode>
+      <FileName>Assets\AScripts\Enemies\AttackingAI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamagePlayer" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECAAAAAAAAAAAAAAAAAAAIAARAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\Enemies\DamagePlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyHealth" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACIACAAAAAAAAAAAAAAAAAAAAAAFAAEAAAAAAg=</HashCode>
+      <FileName>Assets\AScripts\Enemies\EnemyHealth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MageScript" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQgDAABACAAAAAEBCABAAAAAIAIAAABAQAAABAAAAA=</HashCode>
+      <FileName>Assets\AScripts\Enemies\Ranged\MageScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQQAACSJAABAEAAABAogAAAAIBAAAQAAAAAAACAA=</HashCode>
+      <FileName>Assets\AScripts\Enemies\Ranged\Projectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadPlayerButton" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\AScripts\Checkpoints\LoadPlayerButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerData" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\AScripts\Checkpoints\PlayerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveSystem" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\AScripts\Checkpoints\SaveSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

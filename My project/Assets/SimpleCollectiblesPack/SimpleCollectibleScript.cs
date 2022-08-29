@@ -32,9 +32,17 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player") {
+		if (other.tag == "Player" && CollectibleType == CollectibleTypes.Type1) {
 			Collect ();
 			other.GetComponent<PlayerObjectiveTracker>().hasClimbingGear = true;
+		}
+
+		if (other.tag == "Player" && CollectibleType == CollectibleTypes.Type5)
+		{
+			Debug.Log("IN IF");
+			PlayerHealth player = other.GetComponent<PlayerHealth>();
+			SaveSystem.SavePlayer(player);
+			Collect();
 		}
 
 	}
@@ -48,41 +56,13 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 		//Below is space to add in your code for what happens based on the collectible type
 
-		if (CollectibleType == CollectibleTypes.NoType) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
+		if (CollectibleType == CollectibleTypes.Type5)
+        {
 		}
-		if (CollectibleType == CollectibleTypes.Type1) {
-
-			
-		}
-		if (CollectibleType == CollectibleTypes.Type2) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type3) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type4) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-		if (CollectibleType == CollectibleTypes.Type5) {
-
-			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
-		}
-
-		Destroy (gameObject);
+		else
+        {
+			Destroy (gameObject);
+        }
 	}
+
 }
