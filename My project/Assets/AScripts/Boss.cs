@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Boss : AttackingAI
 {
-    bool jump;
+    [SerializeField] GameObject wallA;
+    [SerializeField] GameObject wallB;
+    private bool isChasing;
+    private Vector3 originalPositionA, originalPositionB;
+
     // Start is called before the first frame update
     void Start()
     {
-            base.Start();
-            anim.Play("Jump");
-            
+        originalPositionA = wallA.transform.position;
+        originalPositionB = wallB.transform.position;
+
+        isChasing = false;
+        base.Start();
+        anim.Play("Jump");
+
     }
 
     // Update is called once per frame
@@ -18,6 +26,15 @@ public class Boss : AttackingAI
     {
         if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             base.Update();
-        
+
+        closeSpikes();
+    }
+
+    void closeSpikes() 
+    {
+        if (wallA.transform.position.z > originalPositionA.z - 8)
+        {
+            wallA.transform.position -= Vector3.back * 2 * Time.deltaTime;
+        }
     }
 }
