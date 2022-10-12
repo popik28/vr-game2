@@ -11,11 +11,11 @@ public class AttackingAI : EnemyHealth
     [SerializeField] private bool walkingBack;
     [SerializeField] private Vector3 originalPos;
     private BoxCollider boxCollider;
-    private Animator anim;
+    protected Animator anim;
     private NavMeshAgent agent;
     private bool isDying;
-
-    void Start()
+    
+    public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         boxCollider = GetComponent<BoxCollider>();
@@ -25,7 +25,7 @@ public class AttackingAI : EnemyHealth
         this.agent.speed = moveSpeed;
     }
 
-    void Update()
+    public void Update()
     {
         base.Update();
 
@@ -52,7 +52,7 @@ public class AttackingAI : EnemyHealth
         {
             anim.Play("Attack");
             agent.speed = 0;
-            Vector3 targetPosition = new Vector3(playerPos.position.x, 0, playerPos.position.z);
+            Vector3 targetPosition = new Vector3(playerPos.position.x,this.transform.position.y, playerPos.position.z);
             agent.transform.LookAt(targetPosition);
         }/// <summary>Attacks player when he is in range, uses LookAt to keep facing the player</summary>
         else if (distance <= spotRange)
