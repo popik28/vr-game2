@@ -6,14 +6,14 @@ using UnityEngine.AI;
 public class AttackingAI : EnemyHealth
 {
     private Transform playerPos;
-    [SerializeField] private float moveSpeed, spotRange, attackRange;
-    [SerializeField] private float distance;
-    [SerializeField] private bool walkingBack;
-    [SerializeField] private Vector3 originalPos;
-    private BoxCollider boxCollider;
+    [SerializeField] protected float moveSpeed, spotRange, attackRange;
+    [SerializeField] protected float distance;
+    [SerializeField] protected bool walkingBack;
+    [SerializeField] protected Vector3 originalPos;
+    protected BoxCollider boxCollider;
     protected Animator anim;
-    private NavMeshAgent agent;
-    private bool isDying;
+    protected NavMeshAgent agent;
+    protected bool isDying;
     
     public void Start()
     {
@@ -70,6 +70,8 @@ public class AttackingAI : EnemyHealth
             agent.SetDestination(originalPos);
             anim.Play("Walk");
             agent.speed = moveSpeed;
+            Vector3 targetPosition = new Vector3(playerPos.position.x, this.transform.position.y, playerPos.position.z);
+            agent.transform.LookAt(targetPosition);
         }
         /// <summary>When player is outside of spot range, enemy will walk back to it's original spawn location</summary>
 

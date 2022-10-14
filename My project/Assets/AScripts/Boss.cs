@@ -13,28 +13,37 @@ public class Boss : AttackingAI
         
         isChasing = false;
         base.Start();
-        anim.Play("Jump");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             base.Update();
 
-        if (health > 100 && !wallA.GetComponent<MoveWall>().closed) 
+        if (health <= 400 && !wallA.GetComponent<MoveWall>().closed)
         {
             wallA.GetComponent<MoveWall>().closeSpikes();
             wallB.GetComponent<MoveWall>().closeSpikes();
+            spotRange = 0;
         }
 
-        else if (health > 100 && wallA.GetComponent<MoveWall>().closed) 
+        else if (health >= 300 && wallA.GetComponent<MoveWall>().closed)
         {
             wallA.GetComponent<MoveWall>().openSpikes();
             wallB.GetComponent<MoveWall>().openSpikes();
         }
-            
-    }
+        checkPhase();
 
+
+    }
+    void checkPhase()
+    {
+        if(health >400)
+            anim.parameters.SetValue(0,1);
+        if(health>250 && health<=400)
+            anim.parameters.SetValue(0,2);
+        else
+            anim.parameters.SetValue(0, 3);
+    }
 }

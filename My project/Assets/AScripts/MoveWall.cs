@@ -24,12 +24,12 @@ public class MoveWall : MonoBehaviour
 
     public void closeSpikes() 
     {
-        if (wallA && transform.localPosition.z > originalPosition.z - 8)
+        if (wallA && transform.localPosition.z > originalPosition.z - 13)
         {
             transform.localPosition += Vector3.back * 2 * Time.deltaTime;
         }
 
-        else if (!wallA && transform.localPosition.z < originalPosition.z + 9)
+        else if (!wallA && transform.localPosition.z < originalPosition.z + 14)
         {
             transform.localPosition += Vector3.forward * 2 * Time.deltaTime;
         }
