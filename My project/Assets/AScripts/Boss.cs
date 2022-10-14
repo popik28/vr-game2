@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Boss : AttackingAI
 {
-    [SerializeField] GameObject wallA;
-    [SerializeField] GameObject wallB;
     private bool isChasing;
-    private Vector3 originalPositionA, originalPositionB;
+    [SerializeField] GameObject wallA, wallB;
 
     // Start is called before the first frame update
     void Start()
     {
-        originalPositionA = wallA.transform.position;
-        originalPositionB = wallB.transform.position;
-
+        
         isChasing = false;
         base.Start();
         anim.Play("Jump");
@@ -27,14 +23,18 @@ public class Boss : AttackingAI
         if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
             base.Update();
 
-        closeSpikes();
+        if (health > 100 && !wallA.GetComponent<MoveWall>().closed) 
+        {
+            wallA.GetComponent<MoveWall>().closeSpikes();
+            wallB.GetComponent<MoveWall>().closeSpikes();
+        }
+
+        else if (health > 100 && wallA.GetComponent<MoveWall>().closed) 
+        {
+            wallA.GetComponent<MoveWall>().openSpikes();
+            wallB.GetComponent<MoveWall>().openSpikes();
+        }
+            
     }
 
-    void closeSpikes() 
-    {
-        if (wallA.transform.position.z > originalPositionA.z - 8)
-        {
-            wallA.transform.position -= Vector3.back * 2 * Time.deltaTime;
-        }
-    }
 }
