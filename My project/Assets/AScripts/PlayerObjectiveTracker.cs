@@ -24,10 +24,10 @@ public class PlayerObjectiveTracker : MonoBehaviour
         if (hasClimbingGear)
         {
             Destroy(ClimbCollider);
-            NpcClimb.SetActive(true);
+            NpcClimb.SetActive(true); /// <summary>Activate 2nd NPC on objective collection.</summary>
             NpcStart.SetActive(false);
 
-        }
+        } /// <summary>Track main objective to remove collider for the climbing wall</summary>
 
     }
 
@@ -39,5 +39,7 @@ public class PlayerObjectiveTracker : MonoBehaviour
             NpcHandJet.SetActive(true);
             NpcClimb.SetActive(false);
         }
-    }
+    } /// <summary>Activate 3rd NPC after collecting hand jets.</summary>
+
+
 }

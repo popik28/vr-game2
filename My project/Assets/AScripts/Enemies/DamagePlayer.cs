@@ -11,11 +11,11 @@ public class DamagePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (transform.tag == "enemyWeapon" && GetComponentInParent<EnemyHealth>().health <= 0) 
         {
             GetComponent<BoxCollider>().enabled = false;
         }
-
     }
 
     private void Start()
@@ -32,9 +32,9 @@ public class DamagePlayer : MonoBehaviour
 
         if (other.CompareTag("Shield"))
         {
-            Debug.Log("IN SHIELD IF");
             objDamage = 0;
         }
+
     }
 
     private void OnTriggerExit(Collider other)

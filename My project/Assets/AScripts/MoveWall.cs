@@ -5,7 +5,9 @@ using UnityEngine;
 public class MoveWall : MonoBehaviour
 {
     [SerializeField] bool wallA;
+
     public bool closed = false;
+
     private Vector3 originalPosition;
 
     // Start is called before the first frame update
@@ -27,14 +29,13 @@ public class MoveWall : MonoBehaviour
         if (wallA && transform.localPosition.z > originalPosition.z - 13)
         {
             transform.localPosition += Vector3.back * 2 * Time.deltaTime;
-        }
-
+        } 
         else if (!wallA && transform.localPosition.z < originalPosition.z + 14)
         {
             transform.localPosition += Vector3.forward * 2 * Time.deltaTime;
-        }
+        } else
+            closed = true;
 
-        else closed = true;
     }
 
     public void openSpikes() 
@@ -43,12 +44,12 @@ public class MoveWall : MonoBehaviour
         {
             transform.localPosition += Vector3.forward * 2 * Time.deltaTime;
         }
-
         else if (!wallA && transform.localPosition.z > originalPosition.z)
         {
             transform.localPosition += Vector3.back * 2 * Time.deltaTime;
         }
+        else
+            closed = false;
 
-        else closed = false;
     }
 }

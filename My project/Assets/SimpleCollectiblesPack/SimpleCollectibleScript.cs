@@ -18,7 +18,8 @@ public class SimpleCollectibleScript : MonoBehaviour {
 	public GameObject collectEffect;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 	}
 	
@@ -26,20 +27,22 @@ public class SimpleCollectibleScript : MonoBehaviour {
 	void Update () {
 
 		if (rotate)
+        {
 			transform.Rotate (Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
+        }
 
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player" && CollectibleType == CollectibleTypes.Type1) {
+		if (other.tag == "Player" && CollectibleType == CollectibleTypes.Type1)
+		{
 			Collect ();
 			other.GetComponent<PlayerObjectiveTracker>().hasClimbingGear = true;
 		}
 
 		if (other.tag == "Player" && CollectibleType == CollectibleTypes.Type5)
 		{
-			Debug.Log("IN IF");
 			PlayerHealth player = other.GetComponent<PlayerHealth>();
 			SaveSystem.SavePlayer(player);
 			Collect();
@@ -49,10 +52,15 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 	public void Collect()
 	{
-		if(collectSound)
+        if (collectSound)
+        {
 			AudioSource.PlayClipAtPoint(collectSound, transform.position);
-		if(collectEffect)
+        }
+
+        if (collectEffect)
+        {
 			Instantiate(collectEffect, transform.position, Quaternion.identity);
+        }
 
 		//Below is space to add in your code for what happens based on the collectible type
 

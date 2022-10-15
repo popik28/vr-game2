@@ -12,6 +12,7 @@ public class PlayTutorialSound : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
             Destroy(gameObject);
-        }
+        } /// <summary>Play audio when collecting items.</summary>
     }
+
 }

@@ -5,15 +5,17 @@ using UnityEngine.AI;
 
 public class AttackingAI : EnemyHealth
 {
-    private Transform playerPos;
     [SerializeField] protected float moveSpeed, spotRange, attackRange;
     [SerializeField] protected float distance;
     [SerializeField] protected bool walkingBack;
     [SerializeField] protected Vector3 originalPos;
+
     protected BoxCollider boxCollider;
     protected Animator anim;
     protected NavMeshAgent agent;
     protected bool isDying;
+
+    private Transform playerPos;
     
     public void Start()
     {
@@ -83,6 +85,11 @@ public class AttackingAI : EnemyHealth
         }
         /// <summary>If enemy is in his original location and is not aggravated, play idle animation</summary>
 
+    }
+
+    protected float getSpotRange() 
+    {//Returns spot range
+        return spotRange;
     }
 
     IEnumerator DespawnDeadEnemy()
