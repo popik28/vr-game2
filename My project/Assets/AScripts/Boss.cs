@@ -8,11 +8,12 @@ public class Boss : AttackingAI
     private float ogSpotRange;
     [SerializeField] GameObject wallA, wallB;
     Animator animator;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        animator.SetBool("Pose", true);
         ogSpotRange = getSpotRange();
         isChasing = false;
         base.Start();
@@ -28,7 +29,7 @@ public class Boss : AttackingAI
         {
             wallA.GetComponent<MoveWall>().closeSpikes();
             wallB.GetComponent<MoveWall>().closeSpikes();
-            spotRange = 0;
+            spotRange = 0;//check when phase 2 and in combat mode ( dont stop attacking )
         }
 
          if (health >= 250 && wallA.GetComponent<MoveWall>().closed)
@@ -40,6 +41,10 @@ public class Boss : AttackingAI
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        animator.SetBool("Pose", true);
+    }
     void checkPhase()
     {//Used to check amount of boss health in order to transition between phases via animation parameters.
         if(health > 400)
@@ -50,11 +55,17 @@ public class Boss : AttackingAI
         if(health >= 250 && health <= 400)
         {
                       animator.SetInteger("phase",2);
-        } else
+            attackRange = -1;
+        }
+        else
         {
-                    animator.SetInteger("phase",3);
+            wallA.GetComponent<MoveWall>().closed = true;
+
                       wallA.GetComponent<MoveWall>().openSpikes();
-            wallB.GetComponent<MoveWall>().openSpikes();
+                     wallB.GetComponent<MoveWall>().openSpikes();
+                    
+                    animator.SetInteger("phase",3);
+            
         }
     }
 }
