@@ -104,7 +104,7 @@ public class MageScript : EnemyHealth
     IEnumerator Delay()
     {
         /// <summary>
-        ///  De;ay
+        ///  Delay
         /// </summary>
         yield return new WaitForSeconds(2);
     }

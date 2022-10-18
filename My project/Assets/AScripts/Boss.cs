@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : AttackingAI
 {
     private bool isChasing;
-    private float ogSpotRange;
+    private float ogSpotRange, ogAttackRange;
     [SerializeField] GameObject wallA, wallB;
     Animator animator;
     
@@ -15,6 +15,7 @@ public class Boss : AttackingAI
         animator = this.GetComponent<Animator>();
         animator.SetBool("Pose", true);
         ogSpotRange = getSpotRange();
+        ogAttackRange = getAttackRange();
         isChasing = false;
         base.Start();
 
@@ -32,13 +33,21 @@ public class Boss : AttackingAI
             spotRange = 0;//check when phase 2 and in combat mode ( dont stop attacking )
         }
 
-         if (health >= 250 && wallA.GetComponent<MoveWall>().closed)
+        if (health >= 250 && wallA.GetComponent<MoveWall>().closed)
         {
             wallA.GetComponent<MoveWall>().openSpikes();
             wallB.GetComponent<MoveWall>().openSpikes();
         }
      checkPhase();
+        
+        if (health <= 0)
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                GameObject.Find("SM_Prop_Brazier_" + i.ToString()).GetComponent<FireBall>().enabled = false;
+            }
 
+        }
 
     }
     private void OnTriggerEnter(Collider other)
@@ -59,11 +68,17 @@ public class Boss : AttackingAI
         }
         else if(health<250)
         {
+            spotRange = ogSpotRange;
+            attackRange = ogAttackRange;
             wallA.GetComponent<MoveWall>().closed = true;
-             wallA.GetComponent<MoveWall>().openSpikes();
+            wallA.GetComponent<MoveWall>().openSpikes();
             wallB.GetComponent<MoveWall>().openSpikes();
-             animator.SetInteger("phase",3);
-            GameObject.Find("SM_Prop_Brazier_03 (1)").GetComponent<FireBall>().enabled = true ;
+            animator.SetInteger("phase",3);
+
+            for (int i = 1; i < 5; i++)
+            {
+                GameObject.Find("SM_Prop_Brazier_" + i.ToString()).GetComponent<FireBall>().enabled = true ;
+            }
 
             
         }

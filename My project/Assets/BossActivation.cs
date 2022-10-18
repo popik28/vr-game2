@@ -17,7 +17,8 @@ public class BossActivation : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject.Find("Boss").GetComponent<Boss>().healthBarUI.SetActive(true);
-        GameObject.Find("Boss").GetComponent<Boss>().enabled = true ;
+        GameObject.Find("Boss").GetComponent<Boss>().enabled = true;
+        Destroy(gameObject);
 
     }
 }

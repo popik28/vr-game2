@@ -92,6 +92,11 @@ public class AttackingAI : EnemyHealth
         return spotRange;
     }
 
+    protected float getAttackRange()
+    {
+        return attackRange;
+    }
+
     IEnumerator DespawnDeadEnemy()
     {
         /// <summary>
