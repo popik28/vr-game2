@@ -25,9 +25,16 @@ public class DamagePlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //if (other.transform.tag == "Player")
+        //{   /// <summary>Use Damage() function from PlayerHealth script when player gets hit with a sword</summary>
+        //    other.GetComponent<PlayerHealth>().Damage(objDamage);
+        //}
+
         if (other.transform.tag == "Player")
         {   /// <summary>Use Damage() function from PlayerHealth script when player gets hit with a sword</summary>
             other.GetComponent<PlayerHealth>().Damage(objDamage);
+            objDamage = 0;
+            StartCoroutine(Delay());
         }
 
         if (other.CompareTag("Shield"))
@@ -37,8 +44,14 @@ public class DamagePlayer : MonoBehaviour
 
     }
 
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1);
+        objDamage = ogDamage;
+    }
+
     private void OnTriggerExit(Collider other)
     {
-        objDamage = ogDamage;
+       // objDamage = ogDamage;
     }
 }
