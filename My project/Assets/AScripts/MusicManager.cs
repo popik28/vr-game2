@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [SerializeField] AudioClip labMusic, levelMusic, bossMusic, victoryMusic;
-    [SerializeField] string musicType;
-    [SerializeField] GameObject box1, box2;
-
-    private AudioSource audioManager, nowPlaying;
+    [SerializeField] GameObject[] otherSoundPlayers;
+    
+    private AudioSource audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +24,12 @@ public class MusicManager : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            audioManager.clip = levelMusic;
-            audioManager.PlayDelayed(1f);
+            foreach (GameObject soundPlayer in otherSoundPlayers)
+            {
+                soundPlayer.GetComponent<AudioSource>().Stop();
+            }
+
+            audioManager.PlayDelayed(2.5f);
         }   
     }
 }

@@ -54,16 +54,17 @@ public class Boss : AttackingAI
     {
         animator.SetBool("Pose", true);
     }
+
     void checkPhase()
     {//Used to check amount of boss health in order to transition between phases via animation parameters.
         if(health > 400)
         {
-             animator.SetInteger("phase",1);
+            animator.SetInteger("phase",1);
         }
 
         if(health >= 250 && health <= 400)
         {
-                      animator.SetInteger("phase",2);
+            animator.SetInteger("phase",2);
             attackRange = -1;
         }
         else if(health<250)
