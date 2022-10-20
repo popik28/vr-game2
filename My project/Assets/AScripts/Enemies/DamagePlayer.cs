@@ -40,6 +40,7 @@ public class DamagePlayer : MonoBehaviour
         if (other.CompareTag("Shield"))
         {
             objDamage = 0;
+            StartCoroutine(Delay());
         }
 
     }
@@ -50,8 +51,4 @@ public class DamagePlayer : MonoBehaviour
         objDamage = ogDamage;
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-       // objDamage = ogDamage;
-    }
 }

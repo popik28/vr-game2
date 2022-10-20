@@ -6,17 +6,24 @@ public class DamageEnemy : MonoBehaviour
 {
     [SerializeField] float objDamage;
     private bool hasAttacked;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Enemies" && !hasAttacked)
         {   /// <summary>Use Damage() function from EnemyHealth script when enemy gets hit with a sword</summary>
             other.GetComponent<EnemyHealth>().Damage(objDamage);
-           Invoke("Test",10f);
+            hasAttacked = true;
+            StartCoroutine(Delay());
         }
     }
-    void Test(){
-        Debug.Log("2");
+
+    IEnumerator Delay()
+    {
+        /// <summary>
+        ///  De;ay
+        ///  Delay
+        /// </summary>
+        yield return new WaitForSeconds(1);
+        hasAttacked = false;
     }
- 
 }
