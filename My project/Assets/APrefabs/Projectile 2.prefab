@@ -99,7 +99,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.78
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6224824023176411744
 Rigidbody:
@@ -138,8 +138,8 @@ MonoBehaviour:
   useGravity: 0
   explosionDamage: 5
   explosionRange: 3
-  maxCollisions: 1
-  maxLifetime: 4
+  maxCollisions: 100
+  maxLifetime: 8
 --- !u!96 &6224824023176411750
 TrailRenderer:
   serializedVersion: 2

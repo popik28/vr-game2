@@ -62,14 +62,14 @@ public class Boss : AttackingAI
             animator.SetInteger("phase",1);
         }
 
-        if(health >= 250 && health <= 400)
+        if(health >= 200 && health <= 350)
         {
             animator.SetInteger("phase",2);
             attackRange = -1;
         }
         else if(health<250)
         {
-            spotRange = ogSpotRange;
+            spotRange = 6;
             attackRange = ogAttackRange;
             wallA.GetComponent<MoveWall>().closed = true;
             wallA.GetComponent<MoveWall>().openSpikes();

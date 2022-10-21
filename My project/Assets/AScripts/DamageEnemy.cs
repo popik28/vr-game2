@@ -20,7 +20,6 @@ public class DamageEnemy : MonoBehaviour
     IEnumerator Delay()
     {
         /// <summary>
-        ///  De;ay
         ///  Delay
         /// </summary>
         yield return new WaitForSeconds(1);
