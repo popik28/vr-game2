@@ -59,13 +59,14 @@ public class Boss : AttackingAI
     {//Used to check amount of boss health in order to transition between phases via animation parameters.
         if(health > 400)
         {
-            animator.SetInteger("phase",1);
+            animator.SetInteger("phase", 1);
         }
 
         if(health >= 200 && health <= 350)
         {
-            animator.SetInteger("phase",2);
+            animator.SetInteger("phase", 2);
             attackRange = -1;
+            spotRange = -1;
         }
         else if(health<250)
         {
@@ -74,7 +75,7 @@ public class Boss : AttackingAI
             wallA.GetComponent<MoveWall>().closed = true;
             wallA.GetComponent<MoveWall>().openSpikes();
             wallB.GetComponent<MoveWall>().openSpikes();
-            animator.SetInteger("phase",3);
+            animator.SetInteger("phase", 3);
 
             for (int i = 1; i < 5; i++)
             {
